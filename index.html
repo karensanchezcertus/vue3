@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo en vue</title>
+</head>
+<body>
+    <div id="myApp">
+        <h1>Batman Quotes {{totalQuotes}}</h1>
+        <input type="text" placeholder="add quote"
+        @keypress.enter="addQuote"
+        v-model="newMessage">
+        <br>
+        <br>
+
+        <button v-on:click="toggleAuthor">Toggle author</button>
+        <button v-on:click="addQuote">Add quote</button>
+        <hr>
+        <ul>
+            <li v-for="({quote, author}) in quotes">
+                <span>{{ quote }}</span>
+                <blockquote v-if="showAuthor">{{ author }}</blockquote>
+                <!-- con v-show existira el elemento en html y solo lo ocultara, por lo contrario el v-if si es falso el elemento no existe -->
+                <!-- <blockquote v-show="showAuthor">{{ author }}</blockquote> -->
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
